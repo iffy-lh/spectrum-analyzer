@@ -1,0 +1,28 @@
+# Keil project
+*.uvguix*
+*.uvgui*
+*.scvd
+JLinkLog.txt
+JLinkSettings.ini
+
+# Output
+Output/
+*.o
+*.d
+*.crf
+*.lst
+*.lnp
+*.dep
+*.htm
+*.axf
+*.hex
+*.build_log.htm
+
+# Backup
+*.bak
+*.orig
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
