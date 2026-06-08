@@ -26,3 +26,5 @@ Output/
 Thumbs.db
 Desktop.ini
 .DS_Store
+build_log.txt
+build_output.txt
