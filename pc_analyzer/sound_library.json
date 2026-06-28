@@ -1,0 +1,233 @@
+{
+  "_description": "音库 — 噪音源分类、频谱特征、人耳容忍度",
+  "_note": "频率单位Hz，烦恼度0~1（1=最难以忍受），频段能量为归一化比例",
+
+  "categories": [
+    {
+      "id": "traffic",
+      "name": "交通噪音",
+      "typical_sources": ["汽车引擎", "轮胎摩擦", "鸣笛", "摩托"],
+      "freq_range": [50, 3000],
+      "peak_freq": [80, 500],
+      "band_profile": {
+        "sub_bass": 0.15,
+        "bass": 0.60,
+        "low_mid": 0.20,
+        "mid": 0.04,
+        "high_mid": 0.01,
+        "high": 0.00
+      },
+      "temporal_pattern": "continuous_fluctuating",
+      "annoyance_weight": 0.75,
+      "health_impact": "长期暴露导致心血管压力、睡眠障碍",
+      "is_speech": false
+    },
+    {
+      "id": "construction",
+      "name": "施工/建筑噪音",
+      "typical_sources": ["冲击钻", "打桩机", "电锯", "挖掘机"],
+      "freq_range": [20, 8000],
+      "peak_freq": [100, 3000],
+      "band_profile": {
+        "sub_bass": 0.05,
+        "bass": 0.20,
+        "low_mid": 0.30,
+        "mid": 0.25,
+        "high_mid": 0.15,
+        "high": 0.05
+      },
+      "temporal_pattern": "impulsive",
+      "annoyance_weight": 0.90,
+      "health_impact": "高烦恼度，短期致听力损伤，长期致神经衰弱",
+      "is_speech": false
+    },
+    {
+      "id": "hvac",
+      "name": "空调/风扇/设备嗡鸣",
+      "typical_sources": ["空调外机", "风扇", "冰箱压缩机", "变压器"],
+      "freq_range": [30, 500],
+      "peak_freq": [50, 200],
+      "band_profile": {
+        "sub_bass": 0.20,
+        "bass": 0.55,
+        "low_mid": 0.20,
+        "mid": 0.04,
+        "high_mid": 0.01,
+        "high": 0.00
+      },
+      "temporal_pattern": "continuous_steady",
+      "annoyance_weight": 0.45,
+      "health_impact": "低频持续暴露影响注意力，夜间干扰睡眠",
+      "is_speech": false
+    },
+    {
+      "id": "electrical_hum",
+      "name": "电流嗡鸣/工频噪声",
+      "typical_sources": ["变压器", "荧光灯镇流器", "音响底噪"],
+      "freq_range": [40, 600],
+      "peak_freq": [50, 100, 150, 200, 250, 300],
+      "band_profile": {
+        "sub_bass": 0.10,
+        "bass": 0.70,
+        "low_mid": 0.18,
+        "mid": 0.02,
+        "high_mid": 0.00,
+        "high": 0.00
+      },
+      "temporal_pattern": "continuous_steady",
+      "harmonic_structure": "50Hz基频+奇数倍谐波",
+      "annoyance_weight": 0.55,
+      "health_impact": "可察觉频段持续存在，容易引发烦躁",
+      "is_speech": false
+    },
+    {
+      "id": "impact",
+      "name": "撞击/关门/掉落",
+      "typical_sources": ["关门", "重物掉落", "敲击", "脚步"],
+      "freq_range": [20, 10000],
+      "peak_freq": [100, 3000],
+      "band_profile": {
+        "sub_bass": 0.10,
+        "bass": 0.30,
+        "low_mid": 0.30,
+        "mid": 0.15,
+        "high_mid": 0.10,
+        "high": 0.05
+      },
+      "temporal_pattern": "transient",
+      "annoyance_weight": 0.70,
+      "health_impact": "突发惊吓反应，频繁发生加剧焦虑",
+      "is_speech": false
+    },
+    {
+      "id": "shrill",
+      "name": "尖锐啸叫/警报",
+      "typical_sources": ["警报器", "刹车声", "金属摩擦"],
+      "freq_range": [2000, 16000],
+      "peak_freq": [3000, 8000],
+      "band_profile": {
+        "sub_bass": 0.00,
+        "bass": 0.00,
+        "low_mid": 0.05,
+        "mid": 0.10,
+        "high_mid": 0.50,
+        "high": 0.35
+      },
+      "temporal_pattern": "continuous_or_intermittent",
+      "annoyance_weight": 0.95,
+      "health_impact": "人耳最敏感频段，可直接损伤听力",
+      "is_speech": false
+    },
+    {
+      "id": "crowd",
+      "name": "人群嘈杂/喧哗",
+      "typical_sources": ["多人交谈", "餐厅", "教室", "市场"],
+      "freq_range": [80, 5000],
+      "peak_freq": [200, 2000],
+      "band_profile": {
+        "sub_bass": 0.02,
+        "bass": 0.15,
+        "low_mid": 0.35,
+        "mid": 0.30,
+        "high_mid": 0.15,
+        "high": 0.03
+      },
+      "temporal_pattern": "continuous_fluctuating",
+      "annoyance_weight": 0.65,
+      "health_impact": "信息干扰为主，降低学习和工作效率",
+      "is_speech": false,
+      "note": "嘈杂人群与单人口音的频谱不同：无清晰谐波结构、峰谷紊乱"
+    },
+    {
+      "id": "speech",
+      "name": "单人口音（他人说话）",
+      "typical_sources": ["旁边人说话", "电话交谈", "讲课"],
+      "freq_range": [85, 4000],
+      "peak_freq": [100, 500],
+      "band_profile": {
+        "sub_bass": 0.02,
+        "bass": 0.40,
+        "low_mid": 0.30,
+        "mid": 0.20,
+        "high_mid": 0.07,
+        "high": 0.01
+      },
+      "temporal_pattern": "intermittent",
+      "harmonic_structure": "基频85-255Hz + 共振峰1-4kHz",
+      "annoyance_weight": 0.60,
+      "health_impact": "语义信息干扰是核心烦恼来源",
+      "is_speech": true,
+      "speech_context_rules": {
+        "active": "自己说话 → 不算噪音",
+        "passive_day": "白天他人正常交谈 → 轻度噪音",
+        "passive_night": "深夜他人说话 → 中度噪音",
+        "persistent": "持续15分钟以上 → 烦恼度+0.2"
+      }
+    },
+    {
+      "id": "natural",
+      "name": "自然声（风雨/鸟鸣）",
+      "typical_sources": ["雨声", "风声", "鸟鸣", "虫鸣"],
+      "freq_range": [50, 10000],
+      "peak_freq": [100, 6000],
+      "band_profile": {
+        "sub_bass": 0.05,
+        "bass": 0.15,
+        "low_mid": 0.20,
+        "mid": 0.25,
+        "high_mid": 0.25,
+        "high": 0.10
+      },
+      "temporal_pattern": "continuous_or_intermittent",
+      "annoyance_weight": 0.25,
+      "health_impact": "多数人认为舒适或中性，极端天气除外",
+      "is_speech": false,
+      "note": "雨声粉噪，风声低频；鸟鸣2-8kHz。部分人视鸟鸣为噪音"
+    },
+    {
+      "id": "quiet",
+      "name": "安静/背景底噪",
+      "typical_sources": ["深夜环境", "图书馆", "实验室"],
+      "freq_range": [0, 20000],
+      "peak_freq": [0, 1000],
+      "band_profile": {
+        "sub_bass": 0.20,
+        "bass": 0.35,
+        "low_mid": 0.25,
+        "mid": 0.12,
+        "high_mid": 0.05,
+        "high": 0.03
+      },
+      "temporal_pattern": "continuous_steady",
+      "annoyance_weight": 0.05,
+      "health_impact": "理想声环境",
+      "is_speech": false
+    }
+  ],
+
+  "frequency_bands": {
+    "_description": "频段划分（Hz）",
+    "sub_bass":   [0, 60],
+    "bass":       [60, 250],
+    "low_mid":    [250, 500],
+    "mid":        [500, 2000],
+    "high_mid":   [2000, 4000],
+    "high":       [4000, 20000]
+  },
+
+  "human_annoyance_curve": {
+    "_description": "人耳对不同频率的敏感度权重（基于等响曲线简化）",
+    "sub_bass":  0.15,
+    "bass":      0.40,
+    "low_mid":   0.70,
+    "mid":       1.00,
+    "high_mid":  0.85,
+    "high":      0.50
+  },
+
+  "a_weighting": {
+    "_description": "A计权标准各频率衰减值(dB)，用于模拟人耳感知",
+    "frequencies": [20, 25, 31.5, 40, 50, 63, 80, 100, 125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600, 2000, 2500, 3150, 4000, 5000, 6300, 8000, 10000, 12500, 16000, 20000],
+    "attenuation": [-50.5, -44.7, -39.4, -34.6, -30.2, -26.2, -22.5, -19.1, -16.1, -13.4, -10.9, -8.6, -6.6, -4.8, -3.2, -1.9, -0.8, 0.0, 0.6, 1.0, 1.2, 1.3, 1.2, 1.0, 0.5, -0.1, -1.1, -2.5, -4.3, -6.6, -9.3]
+  }
+}

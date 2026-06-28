@@ -1,0 +1,4 @@
+numpy>=1.21.0
+scikit-learn>=1.0.0   # ML分类器（可选）
+pyserial>=3.5         # 串口通信（待实现）
+# scipy — 已移除依赖，全部用numpy实现
